@@ -1,0 +1,519 @@
+/* ===== Night-violet theme ===== */
+:root {
+    --ink: #0b0a26;
+    --panel: #15133d;
+    --panel-2: #1c1a4d;
+    --violet: #7c3aed;
+    --indigo: #4f46e5;
+    --blue: #3b6cff;
+    --cyan: #3ee0ff;
+    --pink: #f05cf0;
+    --grad: linear-gradient(90deg, #7c3aed, #3b6cff);
+    --text: #eceaff;
+    --muted: #a7a4d6;
+    --line: rgba(160, 150, 255, .22);
+    --tint: rgba(124, 92, 255, .10);
+    --hover: rgba(124, 92, 255, .22);
+    --red: #ff7a9c;
+    --accent: #8f7bff;
+    --th: #4a3fd8;
+    --tf: #2d27a8;
+    --shadow: 0 18px 50px rgba(0, 0, 10, .55);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px)
+}
+
+html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+    color-scheme: dark
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    background:
+        radial-gradient(900px 500px at 12% -5%, rgba(124, 58, 237, .45), transparent 60%),
+        radial-gradient(800px 500px at 100% 105%, rgba(59, 108, 255, .40), transparent 60%),
+        var(--ink);
+    background-attachment: fixed;
+    font: 15px/1.5 "Sora", "Noto Sans Khmer", system-ui, Arial, sans-serif;
+    padding: 20px 16px
+}
+
+/* ===== Cards ===== */
+.card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    max-width: 760px;
+    margin: 0 auto 18px;
+    box-shadow: var(--shadow)
+}
+
+h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 700
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 10px 0 2px
+}
+
+input {
+    width: 100%;
+    padding: 9px 2px;
+    border: 0;
+    border-bottom: 1px solid rgba(190, 180, 255, .45);
+    border-radius: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s
+}
+
+input::placeholder {
+    color: #7d7ab0
+}
+
+input:focus {
+    border-bottom-color: var(--cyan);
+    box-shadow: 0 1px 0 var(--cyan)
+}
+
+/* ===== Buttons ===== */
+button {
+    margin-top: 16px;
+    padding: 11px 32px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--grad);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(92, 70, 240, .45)
+}
+
+button:hover {
+    filter: brightness(1.12)
+}
+
+button:focus-visible,
+a.tab:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px
+}
+
+button.ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    margin-left: 6px;
+    box-shadow: none
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0 20px
+}
+
+.err {
+    color: var(--red);
+    font-size: 13px;
+    min-height: 18px;
+    margin-top: 8px
+}
+
+.hidden {
+    display: none
+}
+
+/* ===== Navigation tabs ===== */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 760px;
+    margin: 0 auto 16px
+}
+
+.tab {
+    margin: 0;
+    background: var(--panel);
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 13px;
+    box-shadow: none
+}
+
+a.tab {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer
+}
+
+a.tab:hover {
+    color: var(--text);
+    border-color: var(--accent)
+}
+
+.tab.on {
+    background: var(--grad);
+    color: #fff;
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(92, 70, 240, .4)
+}
+
+.tab.out {
+    margin-left: auto;
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent)
+}
+
+/* ===== Payment schedule ===== */
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 2px solid var(--violet);
+    padding-bottom: 10px;
+    margin-bottom: 14px
+}
+
+.head h1 {
+    margin: 0;
+    font-size: 20px
+}
+
+.head .kh {
+    color: var(--cyan);
+    font-weight: 700
+}
+
+.head .sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px
+}
+
+.price {
+    text-align: right
+}
+
+.price small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px
+}
+
+.price b {
+    font-size: 22px;
+    color: var(--cyan)
+}
+
+.info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px
+}
+
+.info div {
+    background: var(--tint);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 9px 12px
+}
+
+.info small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px
+}
+
+.info b {
+    font-size: 15px
+}
+
+.hist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px
+}
+
+.hist small {
+    color: var(--muted)
+}
+
+.pill {
+    background: var(--tint);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 3px 14px;
+    font-size: 12px;
+    font-weight: 600
+}
+
+.show {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 12px
+}
+
+.wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 12px
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 520px;
+    font-variant-numeric: tabular-nums
+}
+
+th,
+td {
+    padding: 10px 14px;
+    text-align: right;
+    border: 0;
+    border-bottom: 1px solid var(--line)
+}
+
+thead th {
+    background: var(--th);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700
+}
+
+th:first-child,
+td:first-child,
+th:nth-child(2),
+td:nth-child(2) {
+    text-align: center
+}
+
+tbody tr:nth-child(even) {
+    background: var(--tint)
+}
+
+tbody tr:hover {
+    background: var(--hover)
+}
+
+tbody td:last-child {
+    font-weight: 600
+}
+
+tbody tr:first-child td {
+    background: rgba(124, 92, 255, .20)
+}
+
+tbody tr:first-child td:nth-child(2),
+.red {
+    color: var(--red);
+    font-weight: 600
+}
+
+.info b.red {
+    font-size: 15px
+}
+
+tfoot td,
+tfoot th {
+    background: var(--tf);
+    color: #fff;
+    font-weight: 700;
+    border: 0
+}
+
+tfoot th {
+    padding: 10px 14px;
+    text-align: right
+}
+
+tfoot th:first-child {
+    text-align: left
+}
+
+/* ===== Login page ===== */
+.login-page {
+    min-height: calc(100vh - 40px);
+    display: grid;
+    place-items: center
+}
+
+.login-card {
+    width: 100%;
+    max-width: 940px;
+    min-height: 520px;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: var(--shadow)
+}
+
+.login-art {
+    position: relative;
+    background: #120f3a;
+    overflow: hidden
+}
+
+.login-art svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%
+}
+
+.art-caption {
+    position: absolute;
+    left: 34px;
+    bottom: 32px;
+    right: 34px;
+    z-index: 1
+}
+
+.art-caption b {
+    display: block;
+    font-size: 22px;
+    line-height: 1.25
+}
+
+.art-caption span {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #cfc9ff
+}
+
+.login-form {
+    padding: 48px 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(160deg, #181545, #0f0d33)
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 40px
+}
+
+.brand-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+    background: conic-gradient(from 200deg, #3ee0ff, #7c3aed, #f05cf0, #3ee0ff);
+    box-shadow: 0 0 14px rgba(124, 58, 237, .7)
+}
+
+.login-form h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 6px
+}
+
+.login-form .hint {
+    margin: 0 0 22px;
+    color: var(--muted);
+    font-size: 13px
+}
+
+.login-form label {
+    margin: 16px 0 0
+}
+
+.login-form button {
+    align-self: flex-start;
+    margin-top: 34px;
+    min-width: 160px
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+    .login-card {
+        grid-template-columns: 1fr
+    }
+
+    .login-art {
+        height: 170px
+    }
+
+    .art-caption {
+        display: none
+    }
+
+    .login-form {
+        padding: 30px 26px 36px
+    }
+
+    .tab.out {
+        margin-left: 0
+    }
+}
+
+/* ===== Print: plain black on white ===== */
+@media print {
+    :root {
+        --panel: #fff;
+        --text: #000;
+        --muted: #444;
+        --line: #bbb;
+        --tint: #f2f2f2;
+        --hover: #f2f2f2;
+        --red: #c00;
+        --cyan: #000;
+        --th: #333;
+        --tf: #333;
+        --shadow: none
+    }
+
+    #form,
+    .noprint,
+    .tabs {
+        display: none !important
+    }
+
+    body {
+        background: #fff
+    }
+
+    tbody tr:first-child td {
+        background: #eee
+    }
+}
